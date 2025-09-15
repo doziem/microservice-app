@@ -25,14 +25,14 @@ public class ProductServiceImp implements ProductService{
     private final ProductMapper mapper;
 
     @Override
-    public Integer createProduct(ProductRequest request) {
+    public String createProduct(ProductRequest request) {
         var product = mapper.toProduct(request);
-        return repository.save(product).getId();
+        return repository.save(product).getProductId();
     }
 
     @Override
-    public ProductResponse findById(Integer id) {
-        return repository.findById(id)
+    public ProductResponse findById(String productId) {
+        return repository.findById(productId)
                 .map(mapper::toProductResponse)
                 .orElseThrow(() -> new EntityNotFoundException("Product not found"));
     }
@@ -52,7 +52,7 @@ public class ProductServiceImp implements ProductService{
                 .stream()
                 .map(ProductPurchaseRequest::productId)
                 .toList();
-        var storedProducts = repository.findAllByIdInOrderById(productIds);
+        var storedProducts = repository.findAllByProductIdInOrderByProductId(productIds);
         if (productIds.size() != storedProducts.size()) {
             throw new ProductPurchaseException("One or more products does not exist");
         }

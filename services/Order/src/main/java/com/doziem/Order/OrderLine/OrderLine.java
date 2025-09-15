@@ -14,10 +14,10 @@ import lombok.*;
 public class OrderLine {
     @Id
     @GeneratedValue
-    private Integer id;
+    private String orderLineId;
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-    private Integer productId;
+    private String productId;
     private double quantity;
 }

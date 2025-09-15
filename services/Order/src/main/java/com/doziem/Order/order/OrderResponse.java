@@ -3,7 +3,7 @@ package com.doziem.Order.order;
 import java.math.BigDecimal;
 
 public record OrderResponse(
-        Integer id,
+        String orderId,
         String reference,
         BigDecimal amount,
         PaymentMethod paymentMethod,

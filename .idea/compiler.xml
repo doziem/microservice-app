@@ -10,14 +10,20 @@
         <module name="Order" />
         <module name="config-server" />
         <module name="product" />
+        <module name="Payment" />
         <module name="discovery" />
+        <module name="Gateway" />
+        <module name="Notification" />
         <module name="customer" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Gateway" options="-parameters" />
+      <module name="Notification" options="-parameters" />
       <module name="Order" options="-parameters" />
+      <module name="Payment" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="customer" options="-parameters" />
       <module name="discovery" options="-parameters" />

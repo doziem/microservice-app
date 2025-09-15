@@ -3,7 +3,7 @@ package com.doziem.product.product.dto;
 import java.math.BigDecimal;
 
 public record ProductPurchaseResponse(
-        Integer productId,
+        String productId,
         String name,
         String description,
         BigDecimal price,

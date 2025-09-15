@@ -9,7 +9,7 @@ public class OrderMapper {
             return null;
         }
         return Order.builder()
-                .id(request.id())
+                .orderId(request.orderId())
                 .reference(request.reference())
                 .paymentMethod(request.paymentMethod())
                 .customerId(request.customerId())
@@ -18,7 +18,7 @@ public class OrderMapper {
 
     public OrderResponse fromOrder(Order order) {
         return new OrderResponse(
-                order.getId(),
+                order.getOrderId(),
                 order.getReference(),
                 order.getTotalAmount(),
                 order.getPaymentMethod(),

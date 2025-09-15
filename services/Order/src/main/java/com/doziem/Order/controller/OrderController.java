@@ -3,6 +3,7 @@ package com.doziem.Order.controller;
 import java.util.List;
 
 import com.doziem.Order.order.OrderRequest;
+import com.doziem.Order.order.OrderResponse;
 import com.doziem.Order.service.OrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,19 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<Integer> createOrder(@RequestBody @Valid OrderRequest request){
+    public ResponseEntity<String > createOrder(@RequestBody @Valid OrderRequest request){
        return ResponseEntity.ok(orderService.createOrder(request));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<OrderResponse>> findAll() {
+        return ResponseEntity.ok(this.orderService.findAllOrders());
+    }
+
+    @GetMapping("/{order-id}")
+    public ResponseEntity<OrderResponse> findById(
+            @PathVariable("order-id") String  orderId
+    ) {
+        return ResponseEntity.ok(this.orderService.findById(orderId));
     }
 }
