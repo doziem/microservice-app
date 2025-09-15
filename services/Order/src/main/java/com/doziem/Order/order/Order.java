@@ -22,8 +22,8 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String orderId;
 
     @Column(unique = true,  nullable = false)
     private String reference;

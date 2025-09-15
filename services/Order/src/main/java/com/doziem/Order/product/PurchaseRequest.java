@@ -7,7 +7,7 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public record PurchaseRequest(
         @NotNull(message = "Product is mandatory")
-        Integer productId,
+        String productId,
         @Positive(message = "Quantity is mandatory")
         double quantity
 ) {

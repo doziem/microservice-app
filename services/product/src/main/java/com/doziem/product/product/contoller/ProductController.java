@@ -23,7 +23,7 @@ public class ProductController {
     private  ProductService service;
 
     @PostMapping
-    public ResponseEntity<Integer> createProduct(
+    public ResponseEntity<String> createProduct(
             @RequestBody @Valid ProductRequest request
     ) {
         return ResponseEntity.ok(service.createProduct(request));
@@ -38,7 +38,7 @@ public class ProductController {
 
     @GetMapping("/{product-id}")
     public ResponseEntity<ProductResponse> findById(
-            @PathVariable("product-id") Integer productId
+            @PathVariable("product-id") String productId
     ) {
         return ResponseEntity.ok(service.findById(productId));
     }

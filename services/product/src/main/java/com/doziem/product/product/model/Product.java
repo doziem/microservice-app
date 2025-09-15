@@ -1,11 +1,7 @@
 package com.doziem.product.product.model;
 
 import com.doziem.product.category.Category;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,8 +19,8 @@ import java.math.BigDecimal;
 public class Product {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String productId;
     private String name;
     private String description;
     private double availableQuantity;

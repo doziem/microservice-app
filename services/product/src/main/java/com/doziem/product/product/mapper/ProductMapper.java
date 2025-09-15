@@ -17,7 +17,7 @@ public class ProductMapper {
 
     public Product toProduct(ProductRequest request) {
         return Product.builder()
-                .id(request.id())
+                .productId(request.productId())
                 .name(request.name())
                 .description(request.description())
                 .availableQuantity(request.availableQuantity())
@@ -30,7 +30,7 @@ public class ProductMapper {
 
     public ProductResponse toProductResponse(Product product) {
         return new ProductResponse(
-                product.getId(),
+                product.getProductId(),
                 product.getName(),
                 product.getDescription(),
                 product.getAvailableQuantity(),
@@ -43,7 +43,7 @@ public class ProductMapper {
 
     public ProductPurchaseResponse toProductPurchaseResponse(Product product, double quantity) {
         return new ProductPurchaseResponse(
-                product.getId(),
+                product.getProductId(),
                 product.getName(),
                 product.getDescription(),
                 product.getPrice(),

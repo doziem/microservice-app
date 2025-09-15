@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface ProductService {
 
-    Integer createProduct(ProductRequest request);
+    String  createProduct(ProductRequest request);
 
-    ProductResponse findById(Integer id);
+    ProductResponse findById(String productId);
 
     List<ProductResponse> findAll();
 

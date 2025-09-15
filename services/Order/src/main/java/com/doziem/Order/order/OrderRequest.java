@@ -13,7 +13,7 @@ import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public record OrderRequest(
-        Integer id,
+        String orderId,
         String reference,
         @Positive(message = "Order amount should be positive")
         BigDecimal amount,
