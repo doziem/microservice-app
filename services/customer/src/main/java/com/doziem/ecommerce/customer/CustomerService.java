@@ -16,7 +16,6 @@ public class CustomerService {
     private final CustomerMapper mapper;
 
     public String createCustomer(CustomerRequest request) {
-
         var customer = repository.save(mapper.toCustomer(request));
         return customer.getId();
     }
@@ -56,8 +55,7 @@ public class CustomerService {
 
 
     public Boolean existById(String customerId) {
-        return repository.findById(customerId)
-                .isPresent();
+        return repository.findById(customerId).isPresent();
     }
 
     public CustomerResponse findByCustomerId(String customerId) {

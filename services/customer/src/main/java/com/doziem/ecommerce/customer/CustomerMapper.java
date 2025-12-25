@@ -25,7 +25,6 @@ public class CustomerMapper {
                 customer.getLastname(),
                 customer.getEmail(),
                 customer.getAddress()
-
         );
     }
 }

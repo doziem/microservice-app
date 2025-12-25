@@ -63,17 +63,11 @@ public class EmailService {
 
 
     @Async
-    public void sendOrderConfirmationEmail(
-            String destinationEmail,
-            String customerName,
-            BigDecimal amount,
-            String orderReference,
-            List<Product> products
-    ) throws MessagingException {
+    public void sendOrderConfirmationEmail(String destinationEmail, String customerName, BigDecimal amount, String orderReference, List<Product> products) throws MessagingException {
 
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, MULTIPART_MODE_MIXED_RELATED, UTF_8.name());
-        messageHelper.setFrom("contact@aliboucoding.com");
+        messageHelper.setFrom("contact@doziem.com");
 
         final String templateName = ORDER_CONFIRMATION.getTemplate();
 
@@ -94,7 +88,8 @@ public class EmailService {
             mailSender.send(mimeMessage);
             log.info(String.format("INFO - Email successfully sent to %s with template %s ", destinationEmail, templateName));
         } catch (MessagingException e) {
-            log.warn("WARNING - Cannot send Email to {} ", destinationEmail);
+            log.warn("WARNING - Cannot send Email to {} ", e.getMessage());
+
         }
 
     }
